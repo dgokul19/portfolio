@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 
 // Component
 import TypeComponent from './global/TypeWritter';
-import BgImage from './global/BackgroundImage';
 
 // CSS
 import classes from "../style/Home.module.scss";
 
 // Static images
-import BackgroundImage from '../assets/landing_bg.jpg';
 import profPic from '../assets/pic_01.jpeg';
 
 
@@ -18,7 +16,6 @@ const HomeContainer: React.FC = (): JSX.Element => {
     return (
         <Fragment>
             <div className={`${classes.homeContainer}`}>
-                <BgImage image={BackgroundImage} />
                 <div className={classes.homeContent}>
                     <div className={classes.heloContent}>
                         <TypeComponent />

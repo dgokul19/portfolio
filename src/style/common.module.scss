@@ -38,6 +38,11 @@
     list-style: none;
     gap: 3em;
     color: var(--white);
+    li {
+        a{
+            cursor: pointer;
+        }
+    }
 }
 
 .logo_li {
