@@ -2,7 +2,7 @@
   "homepage": "https://dgokul19.github.io/portfolio",
   "name": "portfolio",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "moment": "^2.30.1",
