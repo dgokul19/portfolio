@@ -1,29 +1,28 @@
-import { Routes, Route } from 'react-router-dom';
+import { useState } from "react";
 
 // Components
-import Navbar from './components/global/Navbar';
-import HomeContainer from './components/HomeContainer';
-import AboutContainer from './components/AboutContainer';
+import MainPage from "./components/MainPage";
+import SideNavIcons from "./components/SideNav/index";
 
-// Hooks
-import { useBackGroundImage } from './Hooks/useBackGroundImage';
+//Utils
+import { THEME_CONSTANTS } from "./common/helper";
+import { ThemeContext } from "./common/ThemeContext";
 
 // CSS
-import './style/globals.scss';
+import classes from "./style/style.module.scss";
+
+
 
 function App() {
-  const { image } = useBackGroundImage();
-  
+  const [ theme, setTheme ] = useState(THEME_CONSTANTS.DARK);
   return (
-    <div className="contentWrapper" style={{ backgroundImage : `url(${image})`}}>
-      <Navbar />
-      <div className='contentLayout'>
-      <Routes>
-        <Route path='/' element={<HomeContainer />} />
-        <Route path='/about' element={<AboutContainer />} />
-      </Routes>
-      </div>
+    <ThemeContext.Provider value={theme}>
+      <div className={classes.contentWrapper} data-theme={theme}>
+        <MainPage />
+
+        <SideNavIcons updateTheme={setTheme} page={''}/>
     </div>
+    </ThemeContext.Provider>
   )
 }
 
