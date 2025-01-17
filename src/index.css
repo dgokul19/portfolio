@@ -5,6 +5,7 @@
     --primary-yellow    : #ffb400;
     --alice-blue        : #d0e6f9;
     --grey-ccc : #ccc;
+    --grey-eee : #eee;
     --icon-bg : #4b4b4b;
     --icon-bg-2 : #2b2a2a;;
     --dark-grey : #333;
@@ -13,15 +14,19 @@
   /* If mode is swicthed, then apply following changes to the variable  */
  
   [data-theme="light"] {
+    --text-secondary : var(--grey-eee);
     --color-text: #666;
     --primary-color: #FFFAFA;
     transition-duration: .55s;
+    --nav-circle-bg : var(--grey-eee);
 }
   
   [data-theme="dark"] {
+    --text-secondary : var(--dark-grey);
     --color-text: #FFFAFA;
     --primary-color: #111;
     transition-duration: .55s;
+    --nav-circle-bg : var(--icon-bg-2);
   }
   
   
@@ -32,6 +37,7 @@
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    color: var(--color-text);
   }
   
   html,

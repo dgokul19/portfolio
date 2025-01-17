@@ -1,14 +1,14 @@
-import { Fragment, useCallback, useContext } from "react";
-
+import { Fragment } from "react";
+import { Link } from "react-router" 
 // Component
 import { ThemeSwitchComponent } from "../global/ThemeSwitch";
 
 
-// CSS
-import classes from "./index.module.scss";
-import { ThemeContext } from "../../common/ThemeContext";
+import { useThemeContext } from "../../common/ThemeContext";
 import { THEME_CONSTANTS } from "../../common/helper";
 
+// CSS
+import classes from "./index.module.scss";
 const { DARK } = THEME_CONSTANTS;
 
 type Props = {
@@ -17,11 +17,12 @@ type Props = {
 }
 
 const SideNavIcons = ({ updateTheme }: Props) => {
-    const theme = useContext(ThemeContext);
+    const theme = useThemeContext();
 
-    const handleThemeChange = useCallback((themeVal: string) => {
+    const handleThemeChange = (themeVal: string) => {
+        console.log(themeVal);
         updateTheme(themeVal)
-    }, []);
+    };
 
     return (
         <Fragment>
@@ -29,11 +30,11 @@ const SideNavIcons = ({ updateTheme }: Props) => {
                 <ThemeSwitchComponent theme={theme} changeTheme={handleThemeChange} />
 
                 <ul className={`${theme === DARK ? classes.darkIcons : classes.lightIcons}`}>
-                    <li className={classes.activePage}><i className="fa fa-home"></i> <span>HOME</span></li>
-                    <li><i className="fa fa-user"></i> <span>ABOUT</span></li>
-                    <li><i className="fa fa-briefcase"></i> <span>PORTFOLIO</span></li>
-                    <li><i className="fa fa-envelope"></i> <span>CONTACT</span></li>
-                    <li><i className="fa fa-comments"></i> <span>BLOG</span></li>
+                    <li className={classes.activePage}><i className="fa fa-home"></i><span><Link to="/">HOME</Link></span></li>
+                    <li><i className="fa fa-user"></i><span><Link to="/about">ABOUT</Link></span></li>
+                    <li><i className="fa fa-briefcase"></i><span> <Link to="/portfolio">PORTFOLIO</Link></span></li>
+                    <li><i className="fa fa-envelope"></i><span> <Link to="/contact">CONTACT</Link></span></li>
+                    <li><i className="fa fa-comments"></i><span><Link to="/blog"> BLOG</Link></span></li>
                 </ul>
             </div>
         </Fragment>

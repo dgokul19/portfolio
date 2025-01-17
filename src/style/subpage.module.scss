@@ -1,0 +1,18 @@
+@import url("../index.css");
+
+.subPageController {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-text);
+    & > section {
+        width: 85%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    .personalInfo{
+        
+    }
+}
